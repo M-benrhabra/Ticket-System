@@ -12,6 +12,7 @@ exports.assignTicket = async (req, res) => {
             technician_Id : technician,
             ticket_Id : idticket._id
         })
+        const etatTicket = await Ticket.findByIdAndUpdate({_id : id}, {etat : 'Affecte'}) 
         console.log("save",assignedTicket)
         const assignSave = await assignedTicket.save()
         res.status(201).json({message : "The Ticket Assigned", assignSave}) 

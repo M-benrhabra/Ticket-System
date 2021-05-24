@@ -48,8 +48,11 @@ const DashboardTechnic = () => {
                         </div> 
             : null}
             {tickets.map((ticket, index) => {
-                return  <div class="row d-inline-flex">
+                
+                    return  <div class="row d-inline-flex">
                     <div class="col-md-3 p-2">
+                        {ticket.etat !== 'Non_Affecte' ? 
+                        (<>
                         <div key= {index} className="card mr-5" style={{width: "18rem"}}>
                             <div className="card-header ">
                                 {ticket.title}
@@ -60,13 +63,20 @@ const DashboardTechnic = () => {
                                 <h6 className="card-subtitle mb-2 text-muted">State : {ticket.etat}</h6>
                                 <p className="card-text">Description : {ticket.description}</p>
                                 <hr/>
-                                <button type="button" className="btn btn-outline-info btn-sm ml-5" onClick={()=> {acceptedTicket(ticket._id)}} >Accept</button>
-                                <button type="button" className="btn btn-outline-danger btn-sm ml-5" onClick={()=> {refuseTicket(ticket._id)}}  >Refuse</button>
+                                {ticket.etat !== 'Cloture' ? 
+                                    (<>
+                                        <button type="button" className="btn btn-outline-info btn-sm ml-5" onClick={()=> {acceptedTicket(ticket._id)}} >Accept</button>
+                                        <button type="button" className="btn btn-outline-danger btn-sm ml-5" onClick={()=> {refuseTicket(ticket._id)}}  >Refuse</button>
+                                    </>) : null }
+                                
                                 
                             </div>
                         </div>
+                        </>) : null}
                     </div>
                 </div>
+                
+                
             })}
         </div>
     )

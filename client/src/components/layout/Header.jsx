@@ -7,37 +7,6 @@ const Header = (props) => {
     const { infos:{isAuth }} = useContext(UserContext)
 
     return (
-        // <nav className="navbar navbar-expand-sm bgc mb-3 py0">
-        //     <div className="container">
-        //         <div>
-        //             <ul className="navbar-nav mr-auto">
-        //                 <li className="nav-item">
-        //                     <NavLink to="/" className="nav-link"> Home </NavLink>
-        //                 </li>
-        //                 { !isAuth ? 
-        //                     ( <>
-        //                         <li className="nav-item">
-        //                             <Link to="/signUp" className="nav-link"> Sign Up </Link>
-        //                         </li>
-        //                         <li className="nav-item">
-        //                             <Link to="/signIn" className="nav-link"> Sign In </Link>
-        //                         </li>
-        //                     </>) :
-        //                     (
-        //                         <>  
-        //                             <li className="nav-item">
-        //                             <Link to="/logout" className="nav-link"> Logout </Link>
-        //                             </li> 
-        //                         </>
-        //                     ) 
-        //                 }
-                       
-                       
-        //             </ul>
-        //         </div>
-        //     </div>
-            
-        // </nav>
         <nav class="navbar navbar-expand-sm  text-light bgc py0">
         <div class="container-fluid">
           <Link class="navbar-brand" to="/">Ticket System</Link>

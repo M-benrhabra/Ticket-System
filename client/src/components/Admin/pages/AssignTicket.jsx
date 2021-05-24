@@ -7,6 +7,7 @@ function AssignTicket() {
     const [infos, setInfos] = useState([])
     const [technician, setTechnician] = useState([])
     const [assign, setAssign] = useState({technician : ''})
+    const [message, setMessage] = useState('')
     
     useEffect(() => {
         // console.log(id);
@@ -44,7 +45,10 @@ function AssignTicket() {
         console.log(assign)
         axios.post(`http://localhost:4040/api/assign/assigned/${id}`, assign)
         .then((data) => {
-            if(data) return console.log("assignemet", data);
+            if(data) {
+                console.log("assignemet", data);
+                setMessage(data.data.message)
+            }
         })
         .catch((error) => {
             console.log(error);
@@ -54,6 +58,10 @@ function AssignTicket() {
     return (
         <>
             <h2 className='text-center mb-5'>  Assign <span className="font-weight-bold ">TICKET</span> </h2>
+            {message ?  <div class="alert alert-primary mt-3 container" role="alert">
+                        {message}
+                        </div> 
+            : null}
             <div className="card border-secondary container" style={{width: "80%"}}>
                 <div className="card-header ">
                     Assign Ticket

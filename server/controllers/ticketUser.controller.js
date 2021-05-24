@@ -57,7 +57,8 @@ exports.deleteTicket = async (req, res) => {
 
 exports.getAllTicket = async (req, res) => {
     try {
-        const allTicket = await Ticket.find( { $or: [ { 'etat': 'Affecte' }, { 'etat': 'Non_Affecte' },{ 'etat': 'Reaffecte' } ] } ).sort({created_at: -1})
+        // const allTicket = await Ticket.find( { $or: [ { 'etat': 'Affecte' }, { 'etat': 'Non_Affecte' },{ 'etat': 'Reaffecte' } ] } ).sort({created_at: -1})
+        const allTicket = await Ticket.find( ).sort({created_at: -1})
         res.status(200).json(allTicket)
     } catch (error) {
         res.status(500).json(error)
